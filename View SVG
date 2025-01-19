@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG from Google Sheets</title>
+</head>
+<body>
+    <div id="svg-container"></div>
+
+    <script>
+        fetch('https://script.google.com/macros/s/AKfycbyjXjyxcBjX1nFcsypYh81MQEZTNZC7au7laTwLwnE8sfgVrZMgjcFjqhO-CzFajSmeFA/exec') // Replace with the URL of your Google Apps Script
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('svg-container').innerHTML = data.svg;
+            })
+            .catch(error => console.error('Error fetching SVG:', error));
+    </script>
+</body>
+</html>
